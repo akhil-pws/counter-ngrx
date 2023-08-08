@@ -3,14 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CounterComponent } from './counter/counter.component';
+import { ButtonsComponent } from './buttons/buttons.component';
+import { OutputComponent } from './output/output.component';
+import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './state/counter.reducer';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CounterComponent,
+    ButtonsComponent,
+    OutputComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    StoreModule.forRoot({count :counterReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
